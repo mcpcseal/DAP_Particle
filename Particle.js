@@ -15,7 +15,7 @@ class Particle{
   applyForce(force){
     this.acceleration.add(force);
   }
-
+  
   // 위치 업데이트를 위한 메소드
   update() {
     this.velocity.add(this.acceleration);
