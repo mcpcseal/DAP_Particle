@@ -1,7 +1,7 @@
 // 간단한 파티클 클래스
 class Particle{
   constructor(position) {
-    this.acceleration = createVector(0, 0.05);
+    this.acceleration = createVector(0, 0);
     this.velocity = createVector(random(-1, 1), random(-1, 0));
     this.position = position.copy();
     this.lifespan = 255;
@@ -12,10 +12,17 @@ class Particle{
     this.display();
   }
 
+  applyForce(force){
+    this.acceleration.add(force);
+  }
+
   // 위치 업데이트를 위한 메소드
   update() {
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
+
+    // reset acceleration
+    this.acceleration.mult(0);
     this.lifespan -= 2;
   }
 
