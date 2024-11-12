@@ -8,7 +8,7 @@ class ParticleSystem{
     this.particles.push(new Particle(this.origin));
   }
 
-  applyGravity(g){
+  applyForce(g){
     for (let p of this.particles){
       p.applyForce(g);
     }
